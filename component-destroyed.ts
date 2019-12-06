@@ -9,7 +9,7 @@ export function componentDestroyed(component: OnDestroy): Observable<true> {
     }
     const oldNgOnDestroy = component.ngOnDestroy;
     const stop$ = new ReplaySubject<true>();
-    modifiedComponent.ngOnDestroy = function () {
+    modifiedComponent.ngOnDestroy = () => {
         if (oldNgOnDestroy) {
             oldNgOnDestroy.apply(component);
         }
